@@ -1,5 +1,7 @@
 package live.chenchen.springdemo.dao;
 
+import java.util.List;
+
 import live.chenchen.springdemo.pojo.Girl;
 
 public interface GirlMapper {
@@ -14,4 +16,6 @@ public interface GirlMapper {
     int updateByPrimaryKeySelective(Girl record);
 
     int updateByPrimaryKey(Girl record);
+
+	List<Girl> getAll();
 }

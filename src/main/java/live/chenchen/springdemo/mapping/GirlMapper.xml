@@ -103,4 +103,8 @@
       minscore = #{minscore,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+	<!-- 查询所有 -->
+	<select id="getAll" resultMap="BaseResultMap">
+		select * from girls
+	</select>
 </mapper>

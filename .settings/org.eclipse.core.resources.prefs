@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/main/java/live/chenchen/springdemo/utils/BaseEntity.java=UTF-8
+encoding//src/main/java/live/chenchen/springdemo/utils/BeanUtil.java=UTF-8
+encoding//src/main/java/live/chenchen/springdemo/utils/PagedResult.java=UTF-8
 encoding//src/main/resources/jdbc.properties=UTF-8
 encoding//src/main/resources/log4j.properties=UTF-8
