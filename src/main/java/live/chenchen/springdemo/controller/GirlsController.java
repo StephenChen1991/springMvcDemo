@@ -38,7 +38,7 @@ public class GirlsController {
 	
 	@RequestMapping(value="getAllTwo.do", produces="application/json; charset=utf-8")
 	@ResponseBody
-	public String getAllTwo(HttpServletRequest request){
+	public <Gson> String getAllTwo(HttpServletRequest request){
 		
 		List<Girl> findAllList = girlsService.getAll();
 		Gson gson = new Gson();

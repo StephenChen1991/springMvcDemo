@@ -7,15 +7,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html>
 <head>
-<script type="text/javascript" src="<%=basePath%>js/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/kkpager/jpager.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=basePath%>js/kkpager/jpager.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+	<script type="text/javascript" src="<%=basePath%>js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>js/kkpager/jpager.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>js/kkpager/jpager.css">
+    <script type="text/javascript" src="<%=basePath%>js/listpage.js"></script>
+
 </head>
 <body>
 	<div id="jpager"></div>
-	<!-- 分页插件开始 -->
+    	<!-- 分页插件开始 -->
 	<script type="text/javascript">
 
 		function getParameter(name) {
@@ -52,33 +54,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				//链接前部 
 				hrefFormer : 'getAllByPage',
 				//链接尾部 
-				hrefLatter : '',
+				hrefLatter : '.do',
 				getLink : function(n) {
 					//alert(n);
 					return this.hrefFormer + this.hrefLatter + "?pageNumber="
 							+ n;
 				},
-			/* 		lang : {
-			 firstPageText : '|<',
-			lastPageText : '>|',
-			 prePageText : '<',
-			nextPageText : '>',
-			 totalPageBeforeText : '共',
-			 totalPageAfterText : '页',
-			 totalRecordsAfterText : '条数据',
-			 gopageBeforeText : '转到',
-			 gopageButtonOkText : '确定',
-			 gopageAfterText : '页',
-			 buttonTipBeforeText : '第',
-			 buttonTipAfterText : '页'
-			 } */
-			//,
-			//mode : 'click',//默认值是link，可选link或者click 
-			/* 		click : function(n){
-			 //this.selectPage(n);
-			 alert(n);
-			 return false;
-			 } */
 			});
 		});
 	</script>
