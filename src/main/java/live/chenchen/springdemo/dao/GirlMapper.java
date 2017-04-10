@@ -18,4 +18,8 @@ public interface GirlMapper {
     int updateByPrimaryKey(Girl record);
 
 	List<Girl> getAll();
+	
+	Girl toUpdateByid(Integer sid);
+
+	int doUpdateByid(Girl g); 
 }

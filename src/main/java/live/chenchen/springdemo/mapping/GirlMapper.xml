@@ -107,4 +107,20 @@
 	<select id="getAll" resultMap="BaseResultMap">
 		select * from girls
 	</select>
+	
+	<select id="toUpdateByid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from girls
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <update id="doUpdateByid" parameterType="live.chenchen.springdemo.pojo.Girl" >
+    update girls
+    set name = #{name,jdbcType=VARCHAR},
+      comingtime = #{comingtime,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      maxscore = #{maxscore,jdbcType=INTEGER},
+      minscore = #{minscore,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

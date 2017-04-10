@@ -2,68 +2,50 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
 	<script type="text/javascript" src="<%=basePath%>js/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/kkpager/jpager.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>js/kkpager/jpager.css">
     <script type="text/javascript" src="<%=basePath%>js/listpage.js"></script>
-
+    <script type="text/javascript">
+        function load() {
+        	arrayPage(${pagedResult.pages}, ${pagedResult.total});
+        }
+    </script>
+    <script type="text/javascript">
+	     function del(id) {
+	  	     if(!confirm("确认删除吗？")) {
+	  	     	window.event.returnValue = false;
+	  	     	
+	  	     } else {
+	  	     	window.event.returnValue = true;
+	  	     		$.ajax({
+	  	     		type:"post",
+	  	     		async:true,
+	  	     		url:"<%=basePath%>del.do",
+	  	     		data:{id:id},
+	  	     		dataType:"text",
+	  	     		success:function(res) {  	     		  
+	  	     			if(res=="yes") {
+	  	     			    alert("恭喜你删除成功！");
+	  	     				location.href="<%=basePath%>getAllByPage.do";
+	  	     			} else {
+	  	     				alert("请稍后再试！");
+	  	     			}
+	  	     		}
+	  	     	})
+	  	     }	  	     
+	  	     }
+    </script>
 </head>
-<body>
-	<div id="jpager"></div>
-    	<!-- 分页插件开始 -->
-	<script type="text/javascript">
+<body onload="load()">
 
-		function getParameter(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null)
-				return unescape(r[2]);
-			return null;
-		}
-
-		//init
-		$(function() {
-			var totalPage = $
-			{
-				pageResult.pages
-			}
-			;
-			var totalRecords = $
-			{
-				pageResult.total
-			}
-			;
-			var pageNo = getParameter('pageNumber');
-			if (!pageNo) {
-				pageNo = 1;
-			}
-			//生成分页 
-			jpager.generPageHtml({
-				pno : pageNo,
-				//总页码 
-				total : totalPage,
-				//总数据条数 
-				totalRecords : totalRecords,
-				//链接前部 
-				hrefFormer : 'getAllByPage',
-				//链接尾部 
-				hrefLatter : '.do',
-				getLink : function(n) {
-					//alert(n);
-					return this.hrefFormer + this.hrefLatter + "?pageNumber="
-							+ n;
-				},
-			});
-		});
-	</script>
-	<!-- 分页插件结束 -->
 	<div>列表</div>
 	<div>
 		<table border="1">
@@ -74,6 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<th>ComingTime</th>
 				<th>MaxScore</th>
 				<th>MinScore</th>
+				<th>Operation</th>
 			</tr>
 				<c:forEach items="${pagedResult.dataList}" var="s">
 				<tr>
@@ -83,10 +66,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${s.comingtime}</td>
 					<td>${s.maxscore}</td>
 					<td>${s.minscore}</td>
+					<td>
+              			<a onclick="del(${s.id})">del|</a>
+              			<a href="<%=basePath%>toUpdateByid.do?id=${s.id}">update</a>
+              		</td>
 				</tr>
 				</c:forEach>
 		</table>
 	</div>
-
+	<div id="jpager"></div>
 </body>
 </html>
