@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>秀女入宫等级入册</title>
+    <title>update jsp</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -80,12 +80,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	     		<div>
 	     			<div class="glyphicon glyphicon-user" style="font-size:26px"></div>
 	     			<label class="text-right">Name: </label>
-	     			<input type="text" name="sname" id="sname"  value="${girls.name}">
+	     			<input type="text" name="name" id="sname"  value="${girls.name}">
 	     		</div>
 	     		<div>
 	     			<div class="glyphicon glyphicon-map-marker" style="font-size:26px"></div>
 	     			<label class="text-right">Time: </label>
-	     			<input type="text" name="cometime" id="cometime" value="${girls.comingtime}">
+	     			<input type="text" name="comingtime" id="comingtime" value="${girls.comingtime}">
 	     		</div>
 	     		<div>
 	     			<div class="glyphicon glyphicon-leaf" style="font-size:26px"></div>

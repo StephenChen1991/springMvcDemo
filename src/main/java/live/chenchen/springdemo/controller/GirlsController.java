@@ -56,7 +56,7 @@ public class GirlsController {
 	/**
 	 * 
 	 */
-	@RequestMapping(value="insert.do",produces="application/json;charset=utf-8")
+	@RequestMapping(value="insert.do")
 	@ResponseBody
 	public String insert(HttpServletRequest request, Girl g){
 		String name = (String) request.getAttribute("name");

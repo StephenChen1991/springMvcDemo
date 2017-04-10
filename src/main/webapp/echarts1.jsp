@@ -32,8 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
     option = {
     title: {
-        text: '清朝.乾隆秀女选秀分数分布图',
-        subtext: '模拟宫廷选秀数据'
+        text: '面试分数分布图',
+        subtext: '模拟面试数据'
     },
     tooltip: {
         trigger: 'axis'

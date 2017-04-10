@@ -61,7 +61,7 @@
      	<li class="active"><a href="reg.jsp">Register</a></li>
      </ul>
      <div class="div1">
-     	<form action="formid">
+     	<form id="formid">
      		<div>
      			<div class="glyphicon glyphicon-user" style="font-size:26px"></div>
      			<label class="text-right">Name: </label>

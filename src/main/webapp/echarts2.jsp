@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     var mychart = echarts.init(document.getElementById('main'));
     option = {
     title : {
-        text: '清朝.乾隆秀女选秀年龄分布图',
+        text: '年龄分布图',
         subtext: '玫瑰图',
         x:'center'
     },
