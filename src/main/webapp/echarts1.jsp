@@ -25,8 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   		<!-- 1.定义div初始化折线图 -->
-        <div style="height:410px;min-height:100px;margin: 0 auto;" id="main"></div>
-        <script type="text/javascript">
+	<div style="height: 410px; min-height: 100px; margin: 0 auto;"
+		id="main"></div>
+	<script type="text/javascript">
         //2. 加载dom之后初始化Echarts实例
         var mychart = echarts.init(document.getElementById("main"));
         
@@ -34,6 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     title: {
         text: '面试分数分布图',
         subtext: '模拟面试数据'
+        x:'center'
     },
     tooltip: {
         trigger: 'axis'
