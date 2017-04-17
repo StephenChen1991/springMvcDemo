@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     option = {
     title: {
         text: '面试分数分布图',
-        subtext: '模拟面试数据'
+        subtext: '模拟面试数据',
         x:'center'
     },
     tooltip: {

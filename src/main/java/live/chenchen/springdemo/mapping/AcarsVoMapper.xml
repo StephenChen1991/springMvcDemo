@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="live.chenchen.springdemo.dao.AcarsVoMapper" >
+  <resultMap id="BaseResultMap" type="live.chenchen.springdemo.pojo.AcarsVo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="curCas" property="curcas" jdbcType="VARCHAR" />
+    <result column="lastArinc" property="lastarinc" jdbcType="VARCHAR" />
+    <result column="tailNr" property="tailnr" jdbcType="VARCHAR" />
+    <result column="fltSuffix" property="fltsuffix" jdbcType="VARCHAR" />
+    <result column="fltNr" property="fltnr" jdbcType="VARCHAR" />
+    <result column="depArpCd" property="deparpcd" jdbcType="VARCHAR" />
+    <result column="arvArpCd" property="arvarpcd" jdbcType="VARCHAR" />
+    <result column="dspDt" property="dspdt" jdbcType="VARCHAR" />
+    <result column="telexDt" property="telexdt" jdbcType="VARCHAR" />
+    <result column="curLat" property="curlat" jdbcType="VARCHAR" />
+    <result column="curLon" property="curlon" jdbcType="VARCHAR" />
+    <result column="curMh" property="curmh" jdbcType="VARCHAR" />
+    <result column="curAlt" property="curalt" jdbcType="VARCHAR" />
+    <result column="curMach" property="curmach" jdbcType="VARCHAR" />
+    <result column="curWd" property="curwd" jdbcType="VARCHAR" />
+    <result column="curWs" property="curws" jdbcType="VARCHAR" />
+    <result column="curTemp" property="curtemp" jdbcType="VARCHAR" />
+    <result column="curFob" property="curfob" jdbcType="VARCHAR" />
+    <result column="curFf" property="curff" jdbcType="VARCHAR" />
+    <result column="curZfw" property="curzfw" jdbcType="VARCHAR" />
+    <result column="curGw" property="curgw" jdbcType="VARCHAR" />
+    <result column="nextWp" property="nextwp" jdbcType="VARCHAR" />
+    <result column="nextTime" property="nexttime" jdbcType="VARCHAR" />
+    <result column="nextFuel" property="nextfuel" jdbcType="VARCHAR" />
+    <result column="estTime" property="esttime" jdbcType="VARCHAR" />
+    <result column="estFob" property="estfob" jdbcType="VARCHAR" />
+    <result column="estDis" property="estdis" jdbcType="VARCHAR" />
+    <result column="telexMsg" property="telexmsg" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="direction" property="direction" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, curCas, lastArinc, tailNr, fltSuffix, fltNr, depArpCd, arvArpCd, dspDt, telexDt, 
+    curLat, curLon, curMh, curAlt, curMach, curWd, curWs, curTemp, curFob, curFf, curZfw, 
+    curGw, nextWp, nextTime, nextFuel, estTime, estFob, estDis, telexMsg, type, direction
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from acars_t
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from acars_t
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="live.chenchen.springdemo.pojo.AcarsVo" >
+    insert into acars_t (id, curCas, lastArinc, 
+      tailNr, fltSuffix, fltNr, 
+      depArpCd, arvArpCd, dspDt, 
+      telexDt, curLat, curLon, 
+      curMh, curAlt, curMach, 
+      curWd, curWs, curTemp, 
+      curFob, curFf, curZfw, 
+      curGw, nextWp, nextTime, 
+      nextFuel, estTime, estFob, 
+      estDis, telexMsg, type, 
+      direction)
+    values (#{id,jdbcType=VARCHAR}, #{curcas,jdbcType=VARCHAR}, #{lastarinc,jdbcType=VARCHAR}, 
+      #{tailnr,jdbcType=VARCHAR}, #{fltsuffix,jdbcType=VARCHAR}, #{fltnr,jdbcType=VARCHAR}, 
+      #{deparpcd,jdbcType=VARCHAR}, #{arvarpcd,jdbcType=VARCHAR}, #{dspdt,jdbcType=VARCHAR}, 
+      #{telexdt,jdbcType=VARCHAR}, #{curlat,jdbcType=VARCHAR}, #{curlon,jdbcType=VARCHAR}, 
+      #{curmh,jdbcType=VARCHAR}, #{curalt,jdbcType=VARCHAR}, #{curmach,jdbcType=VARCHAR}, 
+      #{curwd,jdbcType=VARCHAR}, #{curws,jdbcType=VARCHAR}, #{curtemp,jdbcType=VARCHAR}, 
+      #{curfob,jdbcType=VARCHAR}, #{curff,jdbcType=VARCHAR}, #{curzfw,jdbcType=VARCHAR}, 
+      #{curgw,jdbcType=VARCHAR}, #{nextwp,jdbcType=VARCHAR}, #{nexttime,jdbcType=VARCHAR}, 
+      #{nextfuel,jdbcType=VARCHAR}, #{esttime,jdbcType=VARCHAR}, #{estfob,jdbcType=VARCHAR}, 
+      #{estdis,jdbcType=VARCHAR}, #{telexmsg,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{direction,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="live.chenchen.springdemo.pojo.AcarsVo" >
+    insert into acars_t
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="curcas != null" >
+        curCas,
+      </if>
+      <if test="lastarinc != null" >
+        lastArinc,
+      </if>
+      <if test="tailnr != null" >
+        tailNr,
+      </if>
+      <if test="fltsuffix != null" >
+        fltSuffix,
+      </if>
+      <if test="fltnr != null" >
+        fltNr,
+      </if>
+      <if test="deparpcd != null" >
+        depArpCd,
+      </if>
+      <if test="arvarpcd != null" >
+        arvArpCd,
+      </if>
+      <if test="dspdt != null" >
+        dspDt,
+      </if>
+      <if test="telexdt != null" >
+        telexDt,
+      </if>
+      <if test="curlat != null" >
+        curLat,
+      </if>
+      <if test="curlon != null" >
+        curLon,
+      </if>
+      <if test="curmh != null" >
+        curMh,
+      </if>
+      <if test="curalt != null" >
+        curAlt,
+      </if>
+      <if test="curmach != null" >
+        curMach,
+      </if>
+      <if test="curwd != null" >
+        curWd,
+      </if>
+      <if test="curws != null" >
+        curWs,
+      </if>
+      <if test="curtemp != null" >
+        curTemp,
+      </if>
+      <if test="curfob != null" >
+        curFob,
+      </if>
+      <if test="curff != null" >
+        curFf,
+      </if>
+      <if test="curzfw != null" >
+        curZfw,
+      </if>
+      <if test="curgw != null" >
+        curGw,
+      </if>
+      <if test="nextwp != null" >
+        nextWp,
+      </if>
+      <if test="nexttime != null" >
+        nextTime,
+      </if>
+      <if test="nextfuel != null" >
+        nextFuel,
+      </if>
+      <if test="esttime != null" >
+        estTime,
+      </if>
+      <if test="estfob != null" >
+        estFob,
+      </if>
+      <if test="estdis != null" >
+        estDis,
+      </if>
+      <if test="telexmsg != null" >
+        telexMsg,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="direction != null" >
+        direction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="curcas != null" >
+        #{curcas,jdbcType=VARCHAR},
+      </if>
+      <if test="lastarinc != null" >
+        #{lastarinc,jdbcType=VARCHAR},
+      </if>
+      <if test="tailnr != null" >
+        #{tailnr,jdbcType=VARCHAR},
+      </if>
+      <if test="fltsuffix != null" >
+        #{fltsuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="fltnr != null" >
+        #{fltnr,jdbcType=VARCHAR},
+      </if>
+      <if test="deparpcd != null" >
+        #{deparpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="arvarpcd != null" >
+        #{arvarpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="dspdt != null" >
+        #{dspdt,jdbcType=VARCHAR},
+      </if>
+      <if test="telexdt != null" >
+        #{telexdt,jdbcType=VARCHAR},
+      </if>
+      <if test="curlat != null" >
+        #{curlat,jdbcType=VARCHAR},
+      </if>
+      <if test="curlon != null" >
+        #{curlon,jdbcType=VARCHAR},
+      </if>
+      <if test="curmh != null" >
+        #{curmh,jdbcType=VARCHAR},
+      </if>
+      <if test="curalt != null" >
+        #{curalt,jdbcType=VARCHAR},
+      </if>
+      <if test="curmach != null" >
+        #{curmach,jdbcType=VARCHAR},
+      </if>
+      <if test="curwd != null" >
+        #{curwd,jdbcType=VARCHAR},
+      </if>
+      <if test="curws != null" >
+        #{curws,jdbcType=VARCHAR},
+      </if>
+      <if test="curtemp != null" >
+        #{curtemp,jdbcType=VARCHAR},
+      </if>
+      <if test="curfob != null" >
+        #{curfob,jdbcType=VARCHAR},
+      </if>
+      <if test="curff != null" >
+        #{curff,jdbcType=VARCHAR},
+      </if>
+      <if test="curzfw != null" >
+        #{curzfw,jdbcType=VARCHAR},
+      </if>
+      <if test="curgw != null" >
+        #{curgw,jdbcType=VARCHAR},
+      </if>
+      <if test="nextwp != null" >
+        #{nextwp,jdbcType=VARCHAR},
+      </if>
+      <if test="nexttime != null" >
+        #{nexttime,jdbcType=VARCHAR},
+      </if>
+      <if test="nextfuel != null" >
+        #{nextfuel,jdbcType=VARCHAR},
+      </if>
+      <if test="esttime != null" >
+        #{esttime,jdbcType=VARCHAR},
+      </if>
+      <if test="estfob != null" >
+        #{estfob,jdbcType=VARCHAR},
+      </if>
+      <if test="estdis != null" >
+        #{estdis,jdbcType=VARCHAR},
+      </if>
+      <if test="telexmsg != null" >
+        #{telexmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="direction != null" >
+        #{direction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="live.chenchen.springdemo.pojo.AcarsVo" >
+    update acars_t
+    <set >
+      <if test="curcas != null" >
+        curCas = #{curcas,jdbcType=VARCHAR},
+      </if>
+      <if test="lastarinc != null" >
+        lastArinc = #{lastarinc,jdbcType=VARCHAR},
+      </if>
+      <if test="tailnr != null" >
+        tailNr = #{tailnr,jdbcType=VARCHAR},
+      </if>
+      <if test="fltsuffix != null" >
+        fltSuffix = #{fltsuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="fltnr != null" >
+        fltNr = #{fltnr,jdbcType=VARCHAR},
+      </if>
+      <if test="deparpcd != null" >
+        depArpCd = #{deparpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="arvarpcd != null" >
+        arvArpCd = #{arvarpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="dspdt != null" >
+        dspDt = #{dspdt,jdbcType=VARCHAR},
+      </if>
+      <if test="telexdt != null" >
+        telexDt = #{telexdt,jdbcType=VARCHAR},
+      </if>
+      <if test="curlat != null" >
+        curLat = #{curlat,jdbcType=VARCHAR},
+      </if>
+      <if test="curlon != null" >
+        curLon = #{curlon,jdbcType=VARCHAR},
+      </if>
+      <if test="curmh != null" >
+        curMh = #{curmh,jdbcType=VARCHAR},
+      </if>
+      <if test="curalt != null" >
+        curAlt = #{curalt,jdbcType=VARCHAR},
+      </if>
+      <if test="curmach != null" >
+        curMach = #{curmach,jdbcType=VARCHAR},
+      </if>
+      <if test="curwd != null" >
+        curWd = #{curwd,jdbcType=VARCHAR},
+      </if>
+      <if test="curws != null" >
+        curWs = #{curws,jdbcType=VARCHAR},
+      </if>
+      <if test="curtemp != null" >
+        curTemp = #{curtemp,jdbcType=VARCHAR},
+      </if>
+      <if test="curfob != null" >
+        curFob = #{curfob,jdbcType=VARCHAR},
+      </if>
+      <if test="curff != null" >
+        curFf = #{curff,jdbcType=VARCHAR},
+      </if>
+      <if test="curzfw != null" >
+        curZfw = #{curzfw,jdbcType=VARCHAR},
+      </if>
+      <if test="curgw != null" >
+        curGw = #{curgw,jdbcType=VARCHAR},
+      </if>
+      <if test="nextwp != null" >
+        nextWp = #{nextwp,jdbcType=VARCHAR},
+      </if>
+      <if test="nexttime != null" >
+        nextTime = #{nexttime,jdbcType=VARCHAR},
+      </if>
+      <if test="nextfuel != null" >
+        nextFuel = #{nextfuel,jdbcType=VARCHAR},
+      </if>
+      <if test="esttime != null" >
+        estTime = #{esttime,jdbcType=VARCHAR},
+      </if>
+      <if test="estfob != null" >
+        estFob = #{estfob,jdbcType=VARCHAR},
+      </if>
+      <if test="estdis != null" >
+        estDis = #{estdis,jdbcType=VARCHAR},
+      </if>
+      <if test="telexmsg != null" >
+        telexMsg = #{telexmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="direction != null" >
+        direction = #{direction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="live.chenchen.springdemo.pojo.AcarsVo" >
+    update acars_t
+    set curCas = #{curcas,jdbcType=VARCHAR},
+      lastArinc = #{lastarinc,jdbcType=VARCHAR},
+      tailNr = #{tailnr,jdbcType=VARCHAR},
+      fltSuffix = #{fltsuffix,jdbcType=VARCHAR},
+      fltNr = #{fltnr,jdbcType=VARCHAR},
+      depArpCd = #{deparpcd,jdbcType=VARCHAR},
+      arvArpCd = #{arvarpcd,jdbcType=VARCHAR},
+      dspDt = #{dspdt,jdbcType=VARCHAR},
+      telexDt = #{telexdt,jdbcType=VARCHAR},
+      curLat = #{curlat,jdbcType=VARCHAR},
+      curLon = #{curlon,jdbcType=VARCHAR},
+      curMh = #{curmh,jdbcType=VARCHAR},
+      curAlt = #{curalt,jdbcType=VARCHAR},
+      curMach = #{curmach,jdbcType=VARCHAR},
+      curWd = #{curwd,jdbcType=VARCHAR},
+      curWs = #{curws,jdbcType=VARCHAR},
+      curTemp = #{curtemp,jdbcType=VARCHAR},
+      curFob = #{curfob,jdbcType=VARCHAR},
+      curFf = #{curff,jdbcType=VARCHAR},
+      curZfw = #{curzfw,jdbcType=VARCHAR},
+      curGw = #{curgw,jdbcType=VARCHAR},
+      nextWp = #{nextwp,jdbcType=VARCHAR},
+      nextTime = #{nexttime,jdbcType=VARCHAR},
+      nextFuel = #{nextfuel,jdbcType=VARCHAR},
+      estTime = #{esttime,jdbcType=VARCHAR},
+      estFob = #{estfob,jdbcType=VARCHAR},
+      estDis = #{estdis,jdbcType=VARCHAR},
+      telexMsg = #{telexmsg,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      direction = #{direction,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
